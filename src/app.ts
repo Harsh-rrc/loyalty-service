@@ -135,3 +135,31 @@ app.patch("/api/customers/:id/preferences", (req: Request, res: Response): void 
 });
 
 export default app;
+
+/**
+ * Analytics endpoint (Ticket 6):
+ * Returns total customers, average points, and status distribution.
+ * @route GET /api/analytics
+ */
+app.get("/api/analytics", (req: Request, res: Response): void => {
+    const totalCustomers = customers.length;
+    const totalPoints = customers.reduce((sum, c) => sum + c.points, 0);
+    const avgPoints = totalCustomers > 0 ? totalPoints / totalCustomers : 0;
+
+    const statusDistribution: Record<Customer["status"], number> = {
+        PLATINUM: 0,
+        GOLD: 0,
+        SILVER: 0,
+        BRONZE: 0,
+    };
+
+    customers.forEach((c) => {
+        statusDistribution[c.status]++;
+    });
+
+    res.json({
+        totalCustomers,
+        averagePoints: avgPoints,
+        statusDistribution,
+    });
+});

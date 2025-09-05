@@ -15,5 +15,14 @@
         "@types/node": "^22.15.24",
         "ts-node": "^10.9.2",
         "typescript": "^5.8.3"
-    }
+    },
+
+"totalCustomers": 2,
+  "averagePoints": 650,
+  "statusDistribution": {
+    "PLATINUM": 0,
+    "GOLD": 1,
+    "SILVER": 1,
+    "BRONZE": 0
+  }
 }
