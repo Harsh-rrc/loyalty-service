@@ -1,0 +1,19 @@
+{
+    "name": "loyalty-service",
+    "version": "1.0.0",
+    "description": "Customer Loyalty Service",
+    "main": "dist/server.js",
+    "scripts": {
+        "start": "ts-node src/server.ts",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "express": "^5.1.0"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.2",
+        "@types/node": "^22.15.24",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    }
+}
